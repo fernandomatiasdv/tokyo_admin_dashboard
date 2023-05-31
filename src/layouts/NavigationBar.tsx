@@ -1,20 +1,25 @@
-import {FC, useState} from 'react';
+import {FC, useContext} from 'react';
 import {CssBaseline, Box, Toolbar, List, Divider, IconButton, Button} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import NotificationIcon from '@mui/icons-material/Notifications';
+import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { useWindowSize } from 'usehooks-ts';
-import { drawerHeight } from '../utils/constants/constants';
+import { drawerHeight, sentences } from '../utils/constants/constants';
 import {DrawerVertical, AppBarCustomaized as AppBar} from '../styles/CustomizedComponents';
 import { mainListItems } from '../components/listItems';
 import { NavigationBarProps } from '../typed/interfaces';
+import Stack from '@mui/material/Stack';
 import NavBarButton from '../components/NavBarButton';
-
+import UserLogged from '../components/UserLogged';
+import NavBarContext from '../contexts/NavBarContext';
 
 const NavigationBar:FC<NavigationBarProps> = (props) => {
     const {children} = props;
-    const [open, setOpen] = useState(true);
-    const toggleDrawer = () => setOpen(!open);
+    //const [open, setOpen] = useState(true);
     const { width } = useWindowSize()
+    const { open, setOpen } = useContext(NavBarContext);
+    const toggleDrawer = () => setOpen(!open);
     const widthWindow = JSON.stringify( width )
     const breakpoint = Number(widthWindow) <= 600 ? "sm" : "md"
     const display = breakpoint === "md" ? "block" : "none"
@@ -22,7 +27,7 @@ const NavigationBar:FC<NavigationBarProps> = (props) => {
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
             <AppBar open={open} sx={{ display }} >
-                <Toolbar sx={{ pr: '24px'}}>
+                <Toolbar sx={{ pr: '24px', '& MuiToolbar-root MuiToolbar-regular css-r6ewbb-MuiToolbar-root': {minHeight: "48px"}}}>
                     <IconButton
                         edge="start"
                         color="default"
@@ -35,6 +40,25 @@ const NavigationBar:FC<NavigationBarProps> = (props) => {
                     >
                         <MenuIcon />
                     </IconButton>
+                    <Stack
+                        direction="row"
+                        justifyContent="flex-end"
+                        alignItems="center"
+                        spacing={3}
+                    >
+                        <Button aria-label="notification" variant="outlined" size="large"
+                            sx={{ mr: "20px", p: '12px',  border: '1px solid #DADADA' }}
+                        >
+                            {sentences.layouts.appBar.notifications > 0 ?  
+                                <NotificationIcon /> : 
+                                <NotificationsOutlinedIcon />
+                            }
+                        </Button>
+                        <Box sx={{position: 'absolute', right: "20px"}}>
+                            <UserLogged />
+                        </Box>
+                    </Stack>
+
                 </Toolbar>
             </AppBar>
             {breakpoint === "md" ?

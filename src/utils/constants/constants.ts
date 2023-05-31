@@ -7,7 +7,29 @@ const drawerHeight: widthHeightType = 64;
 const sentences = {
     layouts: {
         appBar: {
-            button: "Mejorar plan"
+            button: "Mejorar plan",
+            avatar: {
+                name: "Randy Sinderman",
+                pic: "https://www.tuasesordemoda.com/wp-content/uploads/2022/11/corte-de-pelo-olivia-wilde-cara-cuadrada.jpeg",
+                bussiness: 'Empresa X'
+            },
+            notifications: 0
+        }
+    },
+    components:{
+        cardboard:{
+            lastactualization: "Última actualización",
+            state: "Estado"
+        }
+    },
+    pages:{
+        board: {
+            title: "Tableros",
+            subtitle: "En esta pantalla podrás visualizar y gestionar tus tableros de seguimiento",
+            breadcrumbs: null,
+            buttonName: "Nuevo Tablero",
+            buttonIcon: "Add",
+            buttonAction: ()=>alert('Nuevo Tablero')
         }
     }
 }

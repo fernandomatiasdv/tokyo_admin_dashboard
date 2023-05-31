@@ -1,4 +1,4 @@
-import {useState} from "react"
+import {useState, useContext} from "react"
 import {Box, ListItemButton, ListItemIcon, ListItemText, Toolbar} from '@mui/material';
 import { NavLink } from "react-router-dom";
 import { useTheme } from '@mui/material/styles';
@@ -6,10 +6,12 @@ import useWindowSize from "../hooks/useWindowSize";
 import ArrowExpand from "./ArrowExpand";
 import { NavLinkItemProps } from "../typed/interfaces";
 import { hasChild } from "../utils/functions";
+import NavBarContext from "../contexts/NavBarContext";
 
 const NavLinkItem: React.FC<NavLinkItemProps> = (props) => {
     const theme = useTheme()
     const { width } = useWindowSize()
+    const { open } = useContext(NavBarContext);
     const widthWindow = JSON.stringify( width )
     const breakpoint = Number(widthWindow) <= 600 ? "sm" : "md"
     const {name, selected, icon, child, path}:NavLinkItemProps = props;
@@ -45,7 +47,7 @@ const NavLinkItem: React.FC<NavLinkItemProps> = (props) => {
                     sx={{color}} 
                     primary={name} 
                 />
-                {breakpoint==="md" && !!child && hasChild(child) &&
+                {breakpoint==="md" && !!open && !!child && hasChild(child) &&
                     <ArrowExpand collapsed={collapsed} />
                 }
             </ListItemButton>
