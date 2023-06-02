@@ -1,4 +1,4 @@
-import { linkType, parentType, sectionType } from "./types";
+import { linkType, parentType, sectionType, severityType } from "./types";
 
 export interface navigationLinksInterface {
     section: sectionType,
@@ -6,7 +6,8 @@ export interface navigationLinksInterface {
     order: number,
     name: string,
     link: linkType,
-    icon: string | undefined
+    icon: string | undefined,
+    child: number[] | null
 }
 
 export interface arrowExpandProps{
@@ -15,7 +16,7 @@ export interface arrowExpandProps{
 
 export interface NavLinkItemProps {
     name: string,
-    child?: number[],
+    child?: number[] | null,
     selected?: boolean,
     icon?: JSX.Element,
     path?: `/${string}`
@@ -31,7 +32,9 @@ export interface NavBarProviderProps{
 
 export interface openDrawerInterface {
     open: boolean,
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>
+    openAlert: boolean,
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>,
+    setOpenAlert: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
 export interface HeaderPagesProps {
@@ -54,4 +57,9 @@ export interface CardBoardProps {
     chips: chipsCardBoardType, 
     lastactualization: string, 
     state: string
+}
+
+export interface AlertProps {
+    label: string,
+    severity: severityType
 }

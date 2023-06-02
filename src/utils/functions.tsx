@@ -6,6 +6,8 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
 import LoginIcon from '@mui/icons-material/Login';
 import AddIcon from '@mui/icons-material/Add';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import PenIcon from '@mui/icons-material/Add';
 
 export const hasChild: (child: number[]) => boolean = (child: number[]) => child.length > 0;
 
@@ -19,8 +21,26 @@ export const icons = (index:string|undefined) => {
     "settings": <SettingsIcon />,
     "supervised-user-circle": <SupervisedUserCircleIcon />,
     "login": <LoginIcon /> ,
-    "add": <AddIcon /> 
-
+    "add": <AddIcon />,
+    "errorOutline": <ErrorOutlineIcon />,
+    "pen": <PenIcon />
   }
   return iconValues[index]
+}
+
+export const getParameters = (index:string):string => {
+  const selectParameter = {
+      "all": ["primary", "Todos"],
+      "testing": ["info", "A evaluar"],
+      "tested": ["success", "Evaluados"]
+  }
+  return selectParameter[index]
+}
+
+export const getPropertiesFromRol = (index:number) => {
+  const actions = {
+    1: {nameRol: "Administrador", color: "primary"},
+    2: {nameRol: "Usuario editor", color: "success" },
+  }
+  return actions[index]
 }

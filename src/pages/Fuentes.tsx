@@ -1,6 +1,19 @@
+import { Toolbar } from "@mui/material"
+import HeaderPages from "../components/HeaderPages/HeaderPages"
+import { sentences } from "../utils/constants/constants"
+
 const Fuentes = () => {
     return(
-        <h2>Fuentes</h2>
+        <Toolbar>
+            <HeaderPages
+                title={sentences.pages.fonts.title}
+                subtitle={sentences.pages.fonts.subtitle}
+                breadcrumbs={sentences.pages.fonts.breadcrumbs}
+                buttonName={sentences.pages.fonts.buttonName}
+                buttonIcon={sentences.pages.fonts.buttonIcon}
+                buttonAction={sentences.pages.fonts.buttonAction}
+            />
+        </Toolbar>
     )
 }
 

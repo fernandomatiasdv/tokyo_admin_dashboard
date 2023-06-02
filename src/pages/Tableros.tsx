@@ -1,11 +1,12 @@
-import { Toolbar } from "@mui/material"
+import { Box, Grid, Stack } from "@mui/material"
 import HeaderPages from "../components/HeaderPages/HeaderPages"
-import { sentences } from "../utils/constants/constants"
+import { cardsBoard, sentences } from "../utils/constants/constants"
+import CardBoard from "../components/CardTablero/CardBoard"
 
 
 const Tableros = () => {
     return(
-        <Toolbar>
+        <Stack>
             <HeaderPages
                 title={sentences.pages.board.title}
                 subtitle={sentences.pages.board.subtitle}
@@ -14,7 +15,23 @@ const Tableros = () => {
                 buttonIcon={sentences.pages.board.buttonIcon}
                 buttonAction={sentences.pages.board.buttonAction}
             />
-        </Toolbar>
+            <Grid container>
+                {cardsBoard && cardsBoard.map((card, index) =>
+                    <Grid item xs={12} md={12}>
+                        <Box sx={{sm: '10px' , md: '10px'}}>
+                            <CardBoard  
+                                key={index}
+                                title={card.title}
+                                chips={card.chips}  
+                                lastactualization={card.lastactualization}
+                                state={card.state}
+                            /> 
+                        </Box>
+                    </Grid>
+                )}
+            </Grid>
+
+        </Stack>
     )
 }
 

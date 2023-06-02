@@ -1,5 +1,5 @@
 import {FC, useContext} from 'react';
-import {CssBaseline, Box, Toolbar, List, Divider, IconButton, Button} from '@mui/material';
+import {CssBaseline, Container, Box, Toolbar, List, Divider, IconButton, Button} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import NotificationIcon from '@mui/icons-material/Notifications';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
@@ -24,10 +24,10 @@ const NavigationBar:FC<NavigationBarProps> = (props) => {
     const breakpoint = Number(widthWindow) <= 600 ? "sm" : "md"
     const display = breakpoint === "md" ? "block" : "none"
     return (
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: 'flex', width: "100%" }}>
             <CssBaseline />
             <AppBar open={open} sx={{ display }} >
-                <Toolbar sx={{ pr: '24px', '& MuiToolbar-root MuiToolbar-regular css-r6ewbb-MuiToolbar-root': {minHeight: "48px"}}}>
+                <Toolbar sx={{ pr: '24px', '& MuiToolbar-root MuiToolbar-regular css-r6ewbb-MuiToolbar-root': {minHeight: "48px", width: "50%"}}}>
                     <IconButton
                         edge="start"
                         color="default"
@@ -46,8 +46,14 @@ const NavigationBar:FC<NavigationBarProps> = (props) => {
                         alignItems="center"
                         spacing={3}
                     >
-                        <Button aria-label="notification" variant="outlined" size="large"
-                            sx={{ mr: "20px", p: '12px',  border: '1px solid #DADADA' }}
+                        <Button aria-label="notification" 
+                            variant="outlined" 
+                            size="large"
+                            sx={{ 
+                                mr: "20px", 
+                                p: '12px',  
+                                border: '1px solid #DADADA' 
+                            }}
                         >
                             {sentences.layouts.appBar.notifications > 0 ?  
                                 <NotificationIcon /> : 
@@ -79,9 +85,9 @@ const NavigationBar:FC<NavigationBarProps> = (props) => {
                     <List component="nav">
                         {mainListItems}
                     </List>
-                    <Box sx={{padding: "20px"}}>
+                    {open && <Box sx={{padding: "20px"}}>
                         <NavBarButton />
-                    </Box>
+                    </Box>}
                 </DrawerVertical>
             :
                 <List component="nav">
