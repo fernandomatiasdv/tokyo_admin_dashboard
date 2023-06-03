@@ -33,8 +33,12 @@ export interface NavBarProviderProps{
 export interface openDrawerInterface {
     open: boolean,
     openAlert: boolean,
+    openCreateUserModal: boolean,
+    activeLinkNavbar: number,
     setOpen: React.Dispatch<React.SetStateAction<boolean>>,
     setOpenAlert: React.Dispatch<React.SetStateAction<boolean>>,
+    setOpenCreateUserModal: React.Dispatch<React.SetStateAction<boolean>>,
+    setActiveLinkNavbar: React.Dispatch<React.SetStateAction<number>>,
 }
 
 export interface HeaderPagesProps {
@@ -62,4 +66,12 @@ export interface CardBoardProps {
 export interface AlertProps {
     label: string,
     severity: severityType
+}
+
+export interface createUserFormData {
+    firstName: string,
+    lastName: string,
+    email: string,
+    password: string,
+    userRol: number
 }

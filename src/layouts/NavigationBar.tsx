@@ -1,5 +1,5 @@
 import {FC, useContext} from 'react';
-import {CssBaseline, Container, Box, Toolbar, List, Divider, IconButton, Button} from '@mui/material';
+import {CssBaseline, Box, Toolbar, List, Divider, Grid, IconButton, Button} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import NotificationIcon from '@mui/icons-material/Notifications';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
@@ -34,36 +34,42 @@ const NavigationBar:FC<NavigationBarProps> = (props) => {
                         aria-label="open drawer"
                         onClick={toggleDrawer}
                         sx={{
-                        marginRight: '36px',
-                        ...(open && { display: 'none' }),
+                            marginRight: '36px',
+                            ...(open && { display: 'none' }),
                         }}
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Stack
-                        direction="row"
-                        justifyContent="flex-end"
-                        alignItems="center"
-                        spacing={3}
-                    >
-                        <Button aria-label="notification" 
-                            variant="outlined" 
-                            size="large"
-                            sx={{ 
-                                mr: "20px", 
-                                p: '12px',  
-                                border: '1px solid #DADADA' 
-                            }}
-                        >
-                            {sentences.layouts.appBar.notifications > 0 ?  
-                                <NotificationIcon /> : 
-                                <NotificationsOutlinedIcon />
-                            }
-                        </Button>
-                        <Box sx={{position: 'absolute', right: "20px"}}>
-                            <UserLogged />
-                        </Box>
-                    </Stack>
+                        <Grid container>
+                            <Grid item xs={12}>
+                                <Stack
+                                    direction="row"
+                                    justifyContent="flex-end"
+                                    alignItems="center"
+                                    spacing={3}
+                                >
+                                    <Box sx={{position: "relative", right: "50px"}}>
+                                        <Button aria-label="notification" 
+                                            variant="outlined" 
+                                            size="large"
+                                            sx={{ 
+                                                mr: "20px", 
+                                                p: '12px',  
+                                                border: '1px solid #DADADA' 
+                                            }}
+                                        >
+                                            {sentences.layouts.appBar.notifications > 0 ?  
+                                                <NotificationIcon /> : 
+                                                <NotificationsOutlinedIcon />
+                                            }
+                                        </Button>
+                                    </Box>
+                                    <Box sx={{position: "relative", right: "50px"}}>
+                                        <UserLogged />
+                                    </Box>
+                            </Stack>
+                        </Grid>
+                    </Grid>
 
                 </Toolbar>
             </AppBar>

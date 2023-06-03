@@ -22,10 +22,45 @@ const sentences = {
             lastactualization: "Última actualización",
             state: "Estado"
         },
+        commonButton:{
+            save: {
+                label:"Guardar", 
+                icon: "save",
+                color: "primary",
+                variant: "contained"
+            },
+            cancel: {
+                label:"Cancelar", 
+                icon: null,
+                color: "primary",
+                variant: "outlined"
+            }
+        },
         alertUserManagment:{
             error: "Ya no pudes sumar mas usuarios a tu cuenta, para hacerlo debes mejorar tu plan actual",
             icon: "errorOutline",
             plan: { label: "Mejorar el plan", action: () => alert("Mejorar el plan") } 
+        },
+        user:{
+            create: {
+                avatar: {
+                    alt: "new User",
+                    pic: "https://i.pinimg.com/236x/bf/c6/7e/bfc67e1bcfd0e331ea9587fbdcaeacac.jpg"
+                },
+                title: "Agregar nuevo usuario",
+                pic: "https://i.pinimg.com/564x/5b/0c/0d/5b0c0d32dfa068ea8c3e74c56ee138ee.jpg",
+                form:{
+                    firstname: "Primer nombre",
+                    lastName: "Apellido",
+                    email: "Email",
+                    password: "Contraseña",
+                    userRole: "Rol del usuario",
+                    userRoleSelect: [
+                        { value: 1, label: "Administrador"} ,
+                        { value: 2, label: "Usuario Editor"}
+                    ]
+                }
+            }
         },
         userTable:{
             columns: ["Avatar", "Nombre Real", "Nombre de usuario", "Email", "Posteos", "Rol", "Acciones"],
@@ -98,7 +133,7 @@ const sentences = {
             breadcrumbs: null,
             buttonName: "Agregar usuario",
             buttonIcon: "add",
-            buttonAction: ()=>alert('Agregar usuario')
+            buttonAction: ()=>alert("Gestion de usuarios")
         }
     }
 }
