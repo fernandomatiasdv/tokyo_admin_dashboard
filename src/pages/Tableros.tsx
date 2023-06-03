@@ -17,8 +17,8 @@ const Tableros = () => {
             />
             <Grid container>
                 {cardsBoard && cardsBoard.map((card, index) =>
-                    <Grid item xs={12} md={12}>
-                        <Box sx={{sm: '10px' , md: '10px'}}>
+                    <Grid item xs={12} md={4} gap={3}>
+                        <Box sx={{sm: '10px' , md: '10px', ml: "20px", mr: "20px"}}>
                             <CardBoard  
                                 key={index}
                                 title={card.title}

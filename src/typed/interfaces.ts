@@ -56,6 +56,13 @@ export interface chipsCardBoardType {
     tested:number
 }
 
+export interface CardTrackingProps {
+    title: string,
+    lastactualization: string,
+    subtitle?: string,
+    stateActive: boolean // Aca habría que ver quyé hace para ponerle un nombre mas descriptivo
+}
+
 export interface CardBoardProps {
     title: string, 
     chips: chipsCardBoardType, 

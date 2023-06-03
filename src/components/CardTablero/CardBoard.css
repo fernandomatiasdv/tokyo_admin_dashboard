@@ -1,3 +1,4 @@
-span {
+.description {
     color: rgba(34, 51, 84, 0.5);
+    margin-left: 20px;
 }

@@ -4,15 +4,17 @@ import { FC } from "react"
 import { CardBoardProps } from "../../typed/interfaces"
 import CardBoardMenu from "./CardBoardMenu"
 import _ from 'lodash'
-import { sentences } from "../../utils/constants/constants"
+//import { sentences } from "../../utils/constants/constants"
 import { getParameters } from "../../utils/functions"
+import "./CardBoard.css"
+import GroupAvatars from "./GroupAvatars"
 
 const CardBoard:FC<CardBoardProps> = (props) => {
     const {title, chips, lastactualization, state} = props
     //const {all, testing, tested} = chips
     return(
         <Paper
-            sx={{width: {xs: "100%", sm: '33.3%'},
+            sx={{width: "100%",
                 border: `1px solid ${theme.grayScale[100]}`,
                 borderRadius: '10px',
                 marginTop: '28px'
@@ -44,7 +46,7 @@ const CardBoard:FC<CardBoardProps> = (props) => {
                     </Grid>
                 </Grid>
                 <Divider />
-                <Stack direction="row" spacing={2}>
+                <Stack direction="row" spacing={2} justifyContent="space-evenly" sx={{mt: "20px", mb: "20px"}}>
                     {_.map(chips, (value:number, clave:string ) => {
                         return(
                             value > 0 &&
@@ -63,8 +65,46 @@ const CardBoard:FC<CardBoardProps> = (props) => {
                         )}
                     )}
                 </Stack>
-                <>
-                    {[lastactualization, state].forEach((f,i) => {
+                <Typography component="p" variant="subtitle1" 
+                    sx={{fontFamily: 'Roboto',
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        fontSize: "14px",
+                        lineHeight: '16px',
+                        alignItems: "center",
+                        ml: "20px",
+                        mb: "20px"
+                    }}
+                >
+                    Ultima actualización: 
+                     <span className="description">{lastactualization}</span>
+                </Typography>
+                <Grid container>
+                    <Grid item xs={7}>
+                        <Stack direction="row" alignItems="center" >
+                            <Typography component="p" variant="subtitle1" 
+                                sx={{fontFamily: 'Roboto',
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                fontSize: "14px",
+                                lineHeight: '16px',
+                                alignItems: "center",
+                                ml: "20px",
+                                mb: "20px"
+                            }}
+                            >
+                                Estado: 
+                                <span className="description">{state}</span>
+                            </Typography>
+                        </Stack>
+                    </Grid>
+                    <Grid item xs={5}>
+                        <Box sx={{position: "relative", bottom: "20px", right: "20px"}}>
+                            <GroupAvatars />
+                        </Box>
+                    </Grid>
+                </Grid>
+                    {/*[lastactualization, state].forEach((f,i) => {
                         return(
                             <Typography component="p" key={i} variant="subtitle1" 
                                 sx={{fontFamily: 'Roboto',
@@ -78,8 +118,7 @@ const CardBoard:FC<CardBoardProps> = (props) => {
                                 {sentences.components.cardboard[`"${f}"`]}: <span>{f}</span>
                             </Typography>
                         )
-                    })}
-                </>
+                    })*/}
             </Stack>
         </Paper>
     )

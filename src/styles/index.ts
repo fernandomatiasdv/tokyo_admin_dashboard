@@ -10,4 +10,13 @@ const styleBoxModel = {
     borderRadius: "10px"
 };
 
-export {styleBoxModel}
+const stylesCardTracking = {
+    p: "25.5px 20px", 
+    width: "100%", 
+    borderRadius: "20px", 
+    border: "1px solid lightgray", 
+    boxShadow: "none"
+}
+
+
+export {styleBoxModel, stylesCardTracking}

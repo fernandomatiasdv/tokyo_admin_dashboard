@@ -1,4 +1,4 @@
-import { CardBoardProps } from "../../typed/interfaces";
+import { CardBoardProps, CardTrackingProps } from "../../typed/interfaces";
 import { navigationLinksInterface } from "../../typed/interfaces";
 import { widthHeightType } from "../../typed/types";
 
@@ -119,6 +119,14 @@ const sentences = {
             buttonIcon: undefined,
             buttonAction: ()=>alert('Explorar Marketplace')
         },
+        tracking: {
+            title: "Tracking",
+            subtitle: "Crea la regla a continuación para automatizar un nuevo seguimiento",
+            breadcrumbs: null,
+            buttonName: null,
+            buttonIcon: undefined,
+            buttonAction: ()=>alert('')
+        },
         marketplacefonts: {
             title: "Marketplace de Fuentes",
             subtitle: "Aplicaciones, Snippets y Fuentes de información que puedes conectar a tu cuenta",
@@ -147,6 +155,50 @@ const cardsBoard:CardBoardProps[] = [{
     },
     lastactualization: "Hace 2 horas",
     state: "Publicado"
+},
+{
+    title: "Tablero de seguimiento de Boletín Oficial de la República Argentina",
+    chips: {
+        all: 4,
+        testing: 2,
+        tested: 9
+    },
+    lastactualization: "Hace 2 horas",
+    state: "Publicado"
+},
+{
+    title: "Tablero de seguimiento de Boletín Oficial de la República Argentina",
+    chips: {
+        all: 4,
+        testing: 2,
+        tested: 9
+    },
+    lastactualization: "Hace 2 horas",
+    state: "Publicado"
+},
+{
+    title: "Tablero de seguimiento de Boletín Oficial de la República Argentina",
+    chips: {
+        all: 4,
+        testing: 2,
+        tested: 9
+    },
+    lastactualization: "Hace 2 horas",
+    state: "Publicado"
+}
+]
+
+const cardsTracking:CardTrackingProps[] = [{
+    title: "Tasas municipales",
+    lastactualization: "24 de Febrero 03:30 PM",
+    subtitle: "Esta es la descripción de la regla creada. Así como está ahora no se sabe de que se trata y obliga al usuario a abrir la Regla si el título no es muy explicativo.",
+    stateActive: true     
+},
+{
+    title: "Track de ejemplo 2",
+    lastactualization: "30 de Marzo 1:00 AM",
+    subtitle: "Esta es la segunda descripción de la regla creada. Regla si el título no es muy explicativo.",
+    stateActive: false     
 }]
 
 const navigationLinks:navigationLinksInterface[] = [
@@ -244,4 +296,4 @@ const navigationLinks:navigationLinksInterface[] = [
 ]
 
 
-export {drawerWidth, cardsBoard, sentences, drawerHeight, navigationLinks}
+export {drawerWidth, cardsBoard, cardsTracking, sentences, drawerHeight, navigationLinks}
